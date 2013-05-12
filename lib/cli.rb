@@ -26,9 +26,9 @@ module InvertedIndex
     end
 
     def check_argument
-      error("No file provided.") if @file_path.empty?
-      error("File #{@file_path} doesn't exist.") unless File.exist?(@file_path)
-      error("File #{@file_path} is empty.") if File.size(@file_path) == 0
+      error("Brak pliku. Podaj plik jako argument.") if @file_path.empty?
+      error("Plik #{@file_path} nie istnieje.") unless File.exist?(@file_path)
+      error("Plik #{@file_path} jest pusty.") if File.size(@file_path) == 0
     end
 
     def error(message)
