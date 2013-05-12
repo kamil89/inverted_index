@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "./lib/inverted_index"
-require "./lib/cli"
+require './lib/inverted_index'
+require './lib/cli'
 
 InvertedIndex::Cli.start(ARGV.first)

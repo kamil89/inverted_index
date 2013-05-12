@@ -51,7 +51,7 @@ module InvertedIndex
       printf(format, "Term", "Wystąpienia")
       printf(format, "----", "-----------")
       results.each do |key, value|
-        wyst = value.map {|a| "(#{a.join(", ")})"}.join(", ")
+        wyst = value.map { |a| "(#{a.join(", ")})" }.join(", ")
         printf(format, key, wyst)
       end
     end
