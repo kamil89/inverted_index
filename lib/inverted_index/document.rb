@@ -12,7 +12,7 @@ module InvertedIndex
     end
 
     def term_position(term)
-      terms.index(term)
+      (0...terms.size).select { |i| terms[i] == term }
     end
   end
 end

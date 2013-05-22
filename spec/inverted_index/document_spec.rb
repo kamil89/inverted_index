@@ -17,15 +17,21 @@ describe InvertedIndex::Document do
   describe '#term_position' do
     context 'document contains term' do
       it 'returns position of term in document' do
-        document.term_position('ala').should eq 0
-        document.term_position('ma').should eq 1
-        document.term_position('kota').should eq 2
+        document.term_position('ala').should eq [0]
+        document.term_position('ma').should eq [1]
+        document.term_position('kota').should eq [2]
+      end
+
+      it 'returns array for multiple occurences' do
+        doc = InvertedIndex::Document.new('Ala ma kota i ola ma kota', 0)
+        doc.term_position('ma').should eq [1, 5]
+        doc.term_position('kota').should eq [2, 6]
       end
     end
 
     context "document doesn't contain term" do
-      it 'returns nil' do
-        document.term_position('ela').should be_nil
+      it 'returns empty array' do
+        document.term_position('ela').should eq []
       end
     end
   end

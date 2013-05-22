@@ -21,7 +21,7 @@ module InvertedIndex
 
       info("Liczba dokumentów: #{documents.size}")
       info("Liczba termów: #{terms.size}")
-      info("-------------------------------------")
+      info("-----------------------------------")
       print_result(results)
     end
 
@@ -51,7 +51,11 @@ module InvertedIndex
       printf(format, "Term", "Wystąpienia")
       printf(format, "----", "-----------")
       results.each do |key, value|
-        wyst = value.map { |a| "(#{a.join(", ")})" }.join(", ")
+        wyst = value.map do |a|
+          id = a[0]
+          indexes = a[1]
+          indexes.map { |i| "(#{id}, #{i})" }
+        end.join(", ")
         printf(format, key, wyst)
       end
     end

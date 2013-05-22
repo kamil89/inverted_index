@@ -7,7 +7,7 @@ module InvertedIndex
       terms.each do |term|
         documents.each do |document|
           index = document.term_position(term)
-          unless index.nil?
+          unless index.empty?
             results[term] ||= []
             results[term] << [document.id, index]
           end

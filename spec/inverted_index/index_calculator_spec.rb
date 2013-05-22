@@ -14,12 +14,12 @@ describe InvertedIndex::IndexCalculator do
 
   it 'calculates inverted index positions' do
     results.should eq ({
-      'ala' => [[0, 0]],
-      'ela' => [[1, 0]],
-      'kota' => [[0, 2], [1, 2], [2, 2]],
-      'ma' => [[0, 1], [1, 1]],
-      'maja' => [[2, 1]],
-      'wszyscy' => [[2, 0]]
+      'ala' => [[0, [0]]],
+      'ela' => [[1, [0]]],
+      'kota' => [[0, [2]], [1, [2]], [2, [2]]],
+      'ma' => [[0, [1]], [1, [1]]],
+      'maja' => [[2, [1]]],
+      'wszyscy' => [[2, [0]]]
     })
   end
 
